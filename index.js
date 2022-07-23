@@ -133,8 +133,6 @@ const renderupdate = function(data, keyValue){
     xScale = d3.scaleTime()
     .domain([
         d3.min(curves, d => d3.min(d.values, f => f.time)),
-        // new Date('2015-01-01'),
-        // new Date('2018-01-01'),
         d3.max(curves, d => d3.max(d.values, f => f.time))
     ])
     .range([0, innerWidth])
