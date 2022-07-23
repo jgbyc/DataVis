@@ -133,6 +133,8 @@ const renderupdate = function(data, keyValue){
     xScale = d3.scaleTime()
     .domain([
         d3.min(curves, d => d3.min(d.values, f => f.time)),
+        // new Date('2015-01-01'),
+        // new Date('2018-01-01'),
         d3.max(curves, d => d3.max(d.values, f => f.time))
     ])
     .range([0, innerWidth])
@@ -185,7 +187,7 @@ const renderupdate = function(data, keyValue){
     //console.log(legend_text);
     
     // draw legend
-    var legend = d3.select('#maingroup').selectAll(".legend")
+    let legend = d3.select('#maingroup').selectAll(".legend")
     .data(legend_text).join('g')
     .attr("class", "legend")
     .attr("transform", function(d, i) { return "translate(" + (innerWidth + 10) + "," + (i * 50 + 300) + ")"; });
@@ -211,7 +213,7 @@ const renderupdate = function(data, keyValue){
 };
 
 const tooltip = function(data, keyValue) {
-    var focus = d3.selectAll('#focus');
+    let focus = d3.selectAll('#focus');
 
     let text = focus.selectAll('#lineHoverText').data(keyValue)
 
