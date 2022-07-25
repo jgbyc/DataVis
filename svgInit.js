@@ -1,0 +1,10 @@
+// get main SVG and its attributes & setting hyper-parameters; 
+const svg = d3.select('#mainsvg');
+const width = +svg.attr('width');
+const height = +svg.attr('height');
+const margin = {top: 20, right: 120, bottom: 130, left: 120};
+const contextMargin = {top: 820, right: 120, bottom: 40, left: 120};
+const innerWidth = width - margin.left - margin.right;
+const innerHeight = height - margin.top - margin.bottom;
+const contextWidth = width - contextMargin.left - contextMargin.right;
+const contextHeight = height - contextMargin.top - contextMargin.bottom;

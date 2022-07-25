@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unemployment Rate Analysis</title>
+    <link rel="stylesheet" href="dataVis.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
+  </head>
+  <body>
+    <h1>Unemployment Rate Analysis</h1>
+    <h2>Different People see different unployment</h2>
+
+    <p>
+        The novel has evolved over time. There are now different genres of novels, each of which embodies distinctive characteristics.
+        There are, for example, some novels that are considered great literary works or "classic" novels. These works have become classics because they are considered model examples of the novel form: they are well-written and they stand the test of time.
+    </p>
+
+    <h3>Unployment Rate by Different Catagory</h3>
+
+    <ul>
+      <li><button class = "button" onclick="location.href='index.html'" type="button">Education</button></li>
+      <li><button class = "button" onclick="location.href='scene2.html'" type="button">Race</button></li>
+      <li><button class = "button" onclick="location.href='scene3.html'" type="button">Sex</button></li>
+      <li><button class = "button pressed" onclick="location.href='scene4.html'" type="button">User Selected Category</button></li>
+    </ul>
+
+    <h4>Unployment Rate by Different Catagory</h4>
+
+    <div class="keyValue">
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="Primary_School" checked/>
+            <label for="key">Primary School</label>
+        </span>
+
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="High_School" checked/>
+            <label for="key">High School</label>
+        </span>
+
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="Associates_Degree" checked/>
+            <label for="key">Associates Degree</label>
+        </span>
+
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="Professional_Degree" checked/>
+            <label for="key">Professional Degree</label>
+        </span>
+
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="White" checked/>
+            <label for="key">White</label>
+        </span>
+
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="Black" checked/>
+            <label for="key">Black</label>
+        </span>
+
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="Asian" checked/>
+            <label for="key">Asian</label>
+        </span>
+
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="Hispanic" checked/>
+            <label for="key">Hispanic</label>
+        </span>
+
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="Men" checked/>
+            <label for="key">Men</label>
+        </span>
+
+        <span>
+            <input id = 'checkBox' name="key" type="checkbox" value="Women" checked/>
+            <label for="key">Women</label>
+        </span>
+
+    </div>
+    <svg width="1650" height="920" id="mainsvg" class="svgs" style="background-color: #ffffff;display: block; margin: 0 auto;"></svg>
+    <script src = 'svgInit.js'></script>
+    <script>
+        // This section defines three Parameters used to config individual scene.
+
+        //Display the unemployment rate of selected groups
+        let keyValue = ["Primary_School", "High_School", "Associates_Degree", "Professional_Degree", "White", "Black", "Asian", "Hispanic", "Men", "Women"];
+        
+        // Define the initial time range
+
+        const initTimeRange = [new Date('1/1/2010'), new Date('3/1/2020')];
+
+        //Define annotation for current scene
+        const annotations = [
+            {
+                note: {label: "Recovery from 2008 Recession"},
+                subject: {
+                y1: 0,
+                y2: 0.9 * innerHeight
+                },
+                y: innerHeight,
+                data: {x: "9/1/2010"}
+            },
+            {
+                note: {label: "Covid Pandemic"},
+                subject: {
+                y1: 0.1 * innerHeight,
+                y2: innerHeight
+                },
+                y: 0.1 * innerHeight,
+                data: {x: "11/1/2019"}
+            }
+        ];
+    </script>
+    <script src = 'dataVis.js'></script>
+  </body>
+</html>
