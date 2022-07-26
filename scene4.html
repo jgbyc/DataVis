@@ -7,74 +7,79 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
   </head>
   <body>
-    <h1>Unemployment Rate Analysis</h1>
-    <h2>Different People see different unployment</h2>
-
-    <p>
-        The novel has evolved over time. There are now different genres of novels, each of which embodies distinctive characteristics.
-        There are, for example, some novels that are considered great literary works or "classic" novels. These works have become classics because they are considered model examples of the novel form: they are well-written and they stand the test of time.
-    </p>
-
-    <h3>Unployment Rate by Different Catagory</h3>
-
-    <ul>
-      <li><button class = "button" onclick="location.href='index.html'" type="button">Education</button></li>
-      <li><button class = "button" onclick="location.href='scene2.html'" type="button">Race</button></li>
-      <li><button class = "button" onclick="location.href='scene3.html'" type="button">Sex</button></li>
-      <li><button class = "button pressed" onclick="location.href='scene4.html'" type="button">User Selected Category</button></li>
-    </ul>
-
-    <h4>Unployment Rate by Different Catagory</h4>
+    <div>
+        <h1>Unemployment Rates Vary Significantly Across Different Worker Group</h1>
+        <p>
+          The unemployment rate is widely used to assess the state of the economy because it varies strongly with the business cycle, 
+          rising when the economy is in a recession and gradually decreasing during economic booms.
+          However, economic fluctuations affect unemployment for various groups differently depending on gender, race and education level.
+        </p>
+        <h2>Use below navigation bar to trigger each scene</h2>
+      </div>
+  
+      <div class="links">
+        <a href="index.html">Education Level</a>
+        <a href="scene2.html">Race</a>
+        <a href="scene3.html">Gender</a>
+        <a id="current" href="#">User-Defined</a>
+      </div>
+  
+      <div>
+        <p>
+          This scene presents the rates of different education levels from Jan 2010 to Mar 2020. The chart suggests that workers with only <span style = "color: #0FB5AE; font-weight: bold;">Primary School</span>
+          education suffers highest unemployment rates and are most sensitive to economic change caused by major event.
+        </p>
+      </div>
 
     <div class="keyValue">
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Primary_School" checked/>
-            <label for="key">Primary School</label>
+            <label style = "color: #0FB5AE;" for="key">Primary School</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="High_School" checked/>
-            <label for="key">High School</label>
+            <label style = "color: #4046CA;" for="key">High School</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Associates_Degree" checked/>
-            <label for="key">Associates Degree</label>
+            <label style = "color: #F68511;" for="key">Associates Degree</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Professional_Degree" checked/>
-            <label for="key">Professional Degree</label>
+            <label style = "color: #DE3D82;" for="key">Professional Degree</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="White" checked/>
-            <label for="key">White</label>
+            <label style = "color: #72E06A;" for="key">White</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Black" checked/>
-            <label for="key">Black</label>
+            <label style = "color: #147AF3;" for="key">Black</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Asian" checked/>
-            <label for="key">Asian</label>
+            <label style = "color: #7326D3;" for="key">Asian</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Hispanic" checked/>
-            <label for="key">Hispanic</label>
+            <label style = "color: #E8C600;" for="key">Hispanic</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Men" checked/>
-            <label for="key">Men</label>
+            <label style = "color: #CB5D00;" for="key">Men</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Women" checked/>
-            <label for="key">Women</label>
+            <label style = "color: #008F5D;" for="key">Women</label>
         </span>
 
     </div>
