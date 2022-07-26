@@ -7,24 +7,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
   </head>
   <body>
-    <h1>Unemployment Rate Analysis</h1>
-    <h2>Different People see different unployment</h2>
+    <div>
+      <h1>Unemployment Rates Vary Significantly Across Different Worker Group</h1>
+      <p>
+        The unemployment rate is widely used to assess the state of the economy because it varies strongly with the business cycle, 
+        rising when the economy is in a recession and gradually decreasing during economic booms.
+        However, economic fluctuations affect unemployment for various groups differently depending on gender, race and education level.
+      </p>
+      <h2>Use below navigation bar to trigger each scene</h2>
+    </div>
 
-    <p>
-        The novel has evolved over time. There are now different genres of novels, each of which embodies distinctive characteristics.
-        There are, for example, some novels that are considered great literary works or "classic" novels. These works have become classics because they are considered model examples of the novel form: they are well-written and they stand the test of time.
-    </p>
+    <div class="links">
+      <a href="index.html">Education Level</a>
+      <a href="scene2.html">Race</a>
+      <a id="current" href="#">Gender</a>
+      <a href="scene4.html">User-Defined</a>
+    </div>
 
-    <h3>Unployment Rate by Different Catagory</h3>
-    
-    <ul>
-      <li><button onclick="location.href='index.html'" type="button">Education Level</button></li>
-      <li><button onclick="location.href='scene2.html'" type="button">Race</button></li>
-      <li><button onclick="location.href='scene3.html'" type="button">Sex</button></li>
-      <li><button onclick="location.href='scene4.html'" type="button">Race</button></li>
-    </ul>
-
-    <h4>Unployment Rate by Different Catagory</h4>
+    <div>
+      <p>
+        This scene presents the rates of different education levels from Jan 2010 to Mar 2020. The chart suggests that workers with only <span style = "color: #0FB5AE; font-weight: bold;">Primary School</span>
+        education suffers highest unemployment rates and are most sensitive to economic change caused by major event.
+      </p>
+    </div>
     <svg width="1650" height="920" id="mainsvg" class="svgs" style="background-color: #ffffff;display: block; margin: 0 auto;"></svg>
     <script src = 'svgInit.js'></script>
     <script>
