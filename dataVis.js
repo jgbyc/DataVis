@@ -1,7 +1,7 @@
 //key value is declared in html file
 //const keyValue = ["Primary_School", "High_School", "Associates_Degree"];
 let xScale, yScale, xScaleContext, yScaleContext;
-let maxX, maxY;
+let currTimeRange = initTimeRange;
 let aduration = 1000;
 
 const xAxisLabel = 'Year';
@@ -230,8 +230,10 @@ const renderUpdate = function(data, keyValue){
     const brushed = function (selection) {
         if (selection) {
             const selectedDomain = selection.map(xScaleContext.invert, xScaleContext);
+            currTimeRange = selectedDomain;
             xScale.domain(selectedDomain);
         } else {
+            currTimeRange = xScaleContext.domain();
             xScale.domain(xScaleContext.domain());
         }
         g.selectAll('#curves')
@@ -270,7 +272,7 @@ const renderUpdate = function(data, keyValue){
         if(!selection) brushed(null);
     });
 
-    const defaultBrushSelection = [xScaleContext(initTimeRange[0]), xScaleContext(initTimeRange[1])];
+    const defaultBrushSelection = [xScaleContext(currTimeRange[0]), xScaleContext(currTimeRange[1])];
     brushG.call(brush).call(brush.move, defaultBrushSelection);
 
     // draw legend
