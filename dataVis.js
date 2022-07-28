@@ -232,9 +232,12 @@ const renderUpdate = function(data, keyValue){
             const selectedDomain = selection.map(xScaleContext.invert, xScaleContext);
             currTimeRange = selectedDomain;
             xScale.domain(selectedDomain);
+            handle.attr('display', null)
+            .attr('transform', (d, i) => {return `translate(${selection[i]}, ${contextHeight / 2})`;});
         } else {
             currTimeRange = xScaleContext.domain();
             xScale.domain(xScaleContext.domain());
+            handle.attr('display', 'none');
         }
         g.selectAll('#curves')
         //.transition().duration(aduration)
@@ -256,9 +259,9 @@ const renderUpdate = function(data, keyValue){
 
         d3.selectAll('#annotation-group').remove();
 
-        d3.select("#maingroup")
-        .append("g")
-        .attr("id", "annotation-group")
+        d3.select('#maingroup')
+        .append('g')
+        .attr('id', 'annotation-group')
         .attr('clip-path', 'url(#clip)')
         .call(makeAnnotations);
     };
@@ -273,30 +276,50 @@ const renderUpdate = function(data, keyValue){
     });
 
     const defaultBrushSelection = [xScaleContext(currTimeRange[0]), xScaleContext(currTimeRange[1])];
-    brushG.call(brush).call(brush.move, defaultBrushSelection);
+    
+    // Initial and render brush element 
+    brushG.call(brush);
+
+    // Customize the brushing handle
+    const handle = brushG.selectAll(".handle--custom")
+    .data([{type: "w"}, {type: "e"}]).join('path')
+        .attr("class", "handle--custom")
+        .attr("fill", "#666")
+        .attr("fill-opacity", 0.8)
+        .attr("stroke", "#000")
+        .attr("stroke-width", 1.5)
+        .attr("cursor", "ew-resize")
+        .attr("d", d3.arc()
+            .innerRadius(0)
+            .outerRadius(contextHeight / 2)
+            .startAngle(0)
+            .endAngle(function(d, i) { return i ? Math.PI : -Math.PI; }));
+    
+    //Apply brushing move.
+    brushG.call(brush.move, defaultBrushSelection);
 
     // draw legend
     
     d3.select('#maingroup').selectAll('.legend').remove();
-    let legend = d3.select('#maingroup').selectAll(".legend")
+    let legend = d3.select('#maingroup').selectAll('.legend')
     .data(keyValue).join('g')
-    .attr("class", "legend")
-    .attr("transform", (d, i) => `translate(${innerWidth + 10}, ${i * 50 + 300})`);
+    .attr('class', 'legend')
+    .attr('transform', (d, i) => `translate(${innerWidth + 10}, ${i * 50 + 300})`);
     
     // draw legend colored rectangles
-    legend.append("rect") 
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("width", 60)
-    .attr("height", 2.5)
-    .style("fill", d => color[d]);
+    legend.append('rect') 
+    .attr('x', 0)
+    .attr('y', 0)
+    .attr('width', 60)
+    .attr('height', 2.5)
+    .style('fill', d => color[d]);
     
     // draw legend text
-    legend.append("text")
-    .attr("x", 0)
-    .attr("y", 15)
-    .attr("dy", ".5em")
-    .attr("text-anchor", "start")
+    legend.append('text')
+    .attr('x', 0)
+    .attr('y', 15)
+    .attr('dy', '.5em')
+    .attr('text-anchor', 'start')
     .attr('font-size', '12px')
     .text(d => labelName[d]);
 
@@ -393,6 +416,14 @@ d3.csv('https://jgbyc.github.io/DataVis/unemployment_data_us.csv').then(function
                 keyValue.push(checkboxes[i].value);
             }
         }
-        renderUpdate(data, keyValue);
+        if (keyValue.length !== 0) 
+            renderUpdate(data, keyValue);
+        else {
+            d3.selectAll('#curves').remove();
+            d3.selectAll('.legend').remove();
+            d3.selectAll('#contextCurves').remove();
+            d3.selectAll('#lineHoverText').remove();
+            d3.selectAll('#hoverCircle').remove();
+        }
     });
 });
