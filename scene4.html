@@ -9,11 +9,7 @@
   <body>
     <div>
         <h1>Unemployment Rates Vary Significantly Across Different Worker Group</h1>
-        <p>
-          The unemployment rate is widely used to assess the state of the economy because it varies strongly with the business cycle, 
-          rising when the economy is in a recession and gradually decreasing during economic booms.
-          However, economic fluctuations affect unemployment for various groups differently depending on gender, race and education level.
-        </p>
+        
         <h2>Use below navigation bar to trigger each scene</h2>
       </div>
   
@@ -21,65 +17,65 @@
         <a href="index.html">Education Level</a>
         <a href="scene2.html">Race</a>
         <a href="scene3.html">Gender</a>
-        <a id="current" href="#">User-Defined</a>
+        <a id="current" href="#">Free Exploration</a>
       </div>
   
       <div>
         <p>
-          This scene presents the rates of different education levels from Jan 2010 to Mar 2020. The chart suggests that workers with only <span style = "color: #0FB5AE; font-weight: bold;">Primary School</span>
-          education suffers highest unemployment rates and are most sensitive to economic change caused by major event.
+          At this scene, you have controls on all parameters. You are allowed to select any curves to be plotted. 
+          As always, you can drag the <span style="font-weight:bold">Slider Bar</span> on the bottom preview section to view the curve details at <span style="font-weight:bold">any time range</span>.
         </p>
       </div>
 
     <div class="keyValue">
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Primary_School" checked/>
-            <label style = "color: #0FB5AE;" for="key">Primary School</label>
+            <label class = "primarySchool" for="key">Primary School</label>
         </span>
 
         <span>
-            <input id = 'checkBox' name="key" type="checkbox" value="High_School" checked/>
-            <label style = "color: #4046CA;" for="key">High School</label>
+            <input id = 'checkBox' name="key" type="checkbox" value="High_School"/>
+            <label class = "highSchool" for="key">High School</label>
         </span>
 
         <span>
-            <input id = 'checkBox' name="key" type="checkbox" value="Associates_Degree" checked/>
-            <label style = "color: #F68511;" for="key">Associates Degree</label>
+            <input id = 'checkBox' name="key" type="checkbox" value="Associates_Degree"/>
+            <label class = "associatesDegree" for="key">Associates Degree</label>
         </span>
 
         <span>
-            <input id = 'checkBox' name="key" type="checkbox" value="Professional_Degree" checked/>
-            <label style = "color: #DE3D82;" for="key">Professional Degree</label>
+            <input id = 'checkBox' name="key" type="checkbox" value="Professional_Degree"/>
+            <label class = "professionalDegree" for="key">Professional Degree</label>
         </span>
 
         <span>
-            <input id = 'checkBox' name="key" type="checkbox" value="White" checked/>
-            <label style = "color: #72E06A;" for="key">White</label>
+            <input id = 'checkBox' name="key" type="checkbox" value="White"/>
+            <label class = "White" for="key">White</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Black" checked/>
-            <label style = "color: #147AF3;" for="key">Black</label>
+            <label class = "Black" for="key">Black</label>
         </span>
 
         <span>
-            <input id = 'checkBox' name="key" type="checkbox" value="Asian" checked/>
-            <label style = "color: #7326D3;" for="key">Asian</label>
+            <input id = 'checkBox' name="key" type="checkbox" value="Asian"/>
+            <label class = "Asian" for="key">Asian</label>
         </span>
 
         <span>
-            <input id = 'checkBox' name="key" type="checkbox" value="Hispanic" checked/>
-            <label style = "color: #E8C600;" for="key">Hispanic</label>
+            <input id = 'checkBox' name="key" type="checkbox" value="Hispanic"/>
+            <label class = "Hispanic" for="key">Hispanic</label>
         </span>
 
         <span>
             <input id = 'checkBox' name="key" type="checkbox" value="Men" checked/>
-            <label style = "color: #CB5D00;" for="key">Men</label>
+            <label class = "Male" for="key">Male</label>
         </span>
 
         <span>
-            <input id = 'checkBox' name="key" type="checkbox" value="Women" checked/>
-            <label style = "color: #008F5D;" for="key">Women</label>
+            <input id = 'checkBox' name="key" type="checkbox" value="Women"/>
+            <label class = "Female" for="key">Female</label>
         </span>
 
     </div>
@@ -89,7 +85,7 @@
         // This section defines three Parameters used to config individual scene.
 
         //Display the unemployment rate of selected groups
-        let keyValue = ["Primary_School", "High_School", "Associates_Degree", "Professional_Degree", "White", "Black", "Asian", "Hispanic", "Men", "Women"];
+        let keyValue = ["Primary_School", "Black", "Men"];
         
         // Define the initial time range
 
